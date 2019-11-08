@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MapJsonAdapter.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright (C) 2015 Square, Inc.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *      http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.squareup.moshi;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.lang.annotation.Annotation;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.lang.reflect.Type;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Set;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.annotation.Nullable;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Converts maps with string keys to JSON objects.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * TODO: support maps with other key types and convert to/from strings.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>final class MapJsonAdapter&#60;K, V&#62; extends JsonAdapter&#60;Map&#60;K, V&#62;&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>  public static final Factory FACTORY = new Factory() {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override public @Nullable JsonAdapter&#60;?&#62; create(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        Type type, Set&#60;? extends Annotation&#62; annotations, Moshi moshi) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      if (!annotations.isEmpty()) return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      Class&#60;?&#62; rawType = Types.getRawType(type);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      if (rawType != Map.class) return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      Type[] keyAndValue = Types.mapKeyAndValueTypes(type, rawType);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      return new MapJsonAdapter&#60;&#62;(moshi, keyAndValue[0], keyAndValue[1]).nullSafe();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>  };</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private final JsonAdapter&#60;K&#62; keyAdapter;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private final JsonAdapter&#60;V&#62; valueAdapter;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  MapJsonAdapter(Moshi moshi, Type keyType, Type valueType) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    this.keyAdapter = moshi.adapter(keyType);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    this.valueAdapter = moshi.adapter(valueType);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override public void toJson(JsonWriter writer, Map&#60;K, V&#62; map) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    writer.beginObject();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    for (Map.Entry&#60;K, V&#62; entry : map.entrySet()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_53'>1</a>
+<span>
+1. toJson : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (entry.getKey() == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        throw new JsonDataException(&#34;Map key is null at &#34; + writer.getPath());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_56'>1</a>
+<span>
+1. toJson : removed call to com/squareup/moshi/JsonWriter::promoteValueToName &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      writer.promoteValueToName();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_57'>1</a>
+<span>
+1. toJson : removed call to com/squareup/moshi/JsonAdapter::toJson &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      keyAdapter.toJson(writer, entry.getKey());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_58'>1</a>
+<span>
+1. toJson : removed call to com/squareup/moshi/JsonAdapter::toJson &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      valueAdapter.toJson(writer, entry.getValue());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    writer.endObject();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override public Map&#60;K, V&#62; fromJson(JsonReader reader) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LinkedHashTreeMap&#60;K, V&#62; result = new LinkedHashTreeMap&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_65'>1</a>
+<span>
+1. fromJson : removed call to com/squareup/moshi/JsonReader::beginObject &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    reader.beginObject();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_66'>1</a>
+<span>
+1. fromJson : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    while (reader.hasNext()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_67'>1</a>
+<span>
+1. fromJson : removed call to com/squareup/moshi/JsonReader::promoteNameToValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      reader.promoteNameToValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      K name = keyAdapter.fromJson(reader);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      V value = valueAdapter.fromJson(reader);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      V replaced = result.put(name, value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_71'>1</a>
+<span>
+1. fromJson : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (replaced != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        throw new JsonDataException(&#34;Map key &#39;&#34; + name + &#34;&#39; has multiple values at path &#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            + reader.getPath() + &#34;: &#34; + replaced + &#34; and &#34; + value);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_76'>1</a>
+<span>
+1. fromJson : removed call to com/squareup/moshi/JsonReader::endObject &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    reader.endObject();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_77'>1</a>
+<span>
+1. fromJson : mutated return of Object value for com/squareup/moshi/MapJsonAdapter::fromJson to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_81'/>
+81
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_81'>1</a>
+<span>
+1. toString : mutated return of Object value for com/squareup/moshi/MapJsonAdapter::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return &#34;JsonAdapter(&#34; + keyAdapter + &#34;=&#34; + valueAdapter + &#34;)&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393d1a05_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toJson<br/><b>Killed by : </b>com.squareup.moshi.MapJsonAdapterTest.mapWithNullKeyFailsToEmit(com.squareup.moshi.MapJsonAdapterTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toJson<br/><b>Killed by : </b>com.squareup.moshi.MapJsonAdapterTest.booleanKeyTypeHasCoherentErrorMessage(com.squareup.moshi.MapJsonAdapterTest)</span></span> removed call to com/squareup/moshi/JsonWriter::promoteValueToName &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toJson<br/><b>Killed by : </b>com.squareup.moshi.MapJsonAdapterTest.booleanKeyTypeHasCoherentErrorMessage(com.squareup.moshi.MapJsonAdapterTest)</span></span> removed call to com/squareup/moshi/JsonAdapter::toJson &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toJson<br/><b>Killed by : </b>com.squareup.moshi.MapJsonAdapterTest.mapWithNonStringKeysToJsonObject(com.squareup.moshi.MapJsonAdapterTest)</span></span> removed call to com/squareup/moshi/JsonAdapter::toJson &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>fromJson<br/><b>Killed by : </b>com.squareup.moshi.MapJsonAdapterTest.emptyMap(com.squareup.moshi.MapJsonAdapterTest)</span></span> removed call to com/squareup/moshi/JsonReader::beginObject &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>fromJson<br/><b>Killed by : </b>com.squareup.moshi.MapJsonAdapterTest.emptyMap(com.squareup.moshi.MapJsonAdapterTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>fromJson<br/><b>Killed by : </b>com.squareup.moshi.MapJsonAdapterTest.duplicatesAreForbidden(com.squareup.moshi.MapJsonAdapterTest)</span></span> removed call to com/squareup/moshi/JsonReader::promoteNameToValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>fromJson<br/><b>Killed by : </b>com.squareup.moshi.MapJsonAdapterTest.duplicatesAreForbidden(com.squareup.moshi.MapJsonAdapterTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>fromJson<br/><b>Killed by : </b>com.squareup.moshi.MapJsonAdapterTest.emptyMap(com.squareup.moshi.MapJsonAdapterTest)</span></span> removed call to com/squareup/moshi/JsonReader::endObject &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>fromJson<br/><b>Killed by : </b>com.squareup.moshi.MapJsonAdapterTest.emptyMap(com.squareup.moshi.MapJsonAdapterTest)</span></span> mutated return of Object value for com/squareup/moshi/MapJsonAdapter::fromJson to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393d1a05_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393d1a05_81'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/squareup/moshi/MapJsonAdapter::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.squareup.moshi.JsonReaderTest.readObject[ValuePeek](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonWriterTest.deepNestingObjects[ValuePeek](com.squareup.moshi.JsonWriterTest) (9 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerDoubleValue[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerBooleanValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (0 ms)</li><li>com.squareup.moshi.JsonReaderTest.selectNameSingleQuoted[ValuePeek](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipObject[Value](com.squareup.moshi.JsonReaderTest) (8 ms)</li><li>com.squareup.moshi.FlattenTest.flattenDoesNotImpactOtherTypesInObjects[ValuePeek](com.squareup.moshi.FlattenTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipName[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.emptyStringName[Value](com.squareup.moshi.JsonReaderTest) (5 ms)</li><li>com.squareup.moshi.JsonWriterTest.deepNestingObjects[Value](com.squareup.moshi.JsonWriterTest) (7 ms)</li><li>com.squareup.moshi.JsonReaderTest.peekAfterPromoteNameToValue[ValuePeek](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.JsonReaderTest.readObject[Value](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipObjectAfterPeek[Value](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.JsonReaderPathTest.objectPath[Value](com.squareup.moshi.JsonReaderPathTest) (4 ms)</li><li>com.squareup.moshi.ObjectAdapterTest.objectAdapterDelegatesStringNamesAndValues(com.squareup.moshi.ObjectAdapterTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerNullValue[Value](com.squareup.moshi.PromoteNameToValueTest) (0 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerBooleanValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerUnusedPromotionDoesntPersist[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerIntegerValue[Value](com.squareup.moshi.PromoteNameToValueTest) (3 ms)</li><li>com.squareup.moshi.MoshiTest.referenceCyclesOnArrays(com.squareup.moshi.MoshiTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.emptyStringName[ValuePeek](com.squareup.moshi.JsonReaderTest) (5 ms)</li><li>com.squareup.moshi.JsonReaderPathTest.path[Value](com.squareup.moshi.JsonReaderPathTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderPathTest.skipObjectValues[ValuePeek](com.squareup.moshi.JsonReaderPathTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderTest.failOnUnknownFailsOnUnknownObjectValue[ValuePeek](com.squareup.moshi.JsonReaderTest) (5 ms)</li><li>com.squareup.moshi.JsonAdapterTest.serializeNulls[ValuePeek](com.squareup.moshi.JsonAdapterTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipObjectAfterPeek[ValuePeek](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerUnquotedLongValue[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.ObjectAdapterTest.fromJsonReturnsMapsAndLists(com.squareup.moshi.ObjectAdapterTest) (5 ms)</li><li>com.squareup.moshi.JsonReaderTest.readJsonValueMap[ValuePeek](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.selectNameUnquoted[ValuePeek](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.JsonReaderTest.readJsonValueNestedListInMap[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipDouble[Value](com.squareup.moshi.JsonReaderTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderTest.selectNameSingleQuoted[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonWriterTest.streamingValueCloseIsIdempotent[Value](com.squareup.moshi.JsonWriterTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderPathTest.arrayOfObjects[ValuePeek](com.squareup.moshi.JsonReaderPathTest) (2 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerLongValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerDoubleValue[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerLongValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.booleanKeyTypeHasCoherentErrorMessage(com.squareup.moshi.MapJsonAdapterTest) (0 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerIntegerValue[Value](com.squareup.moshi.PromoteNameToValueTest) (0 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerStringValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonWriterTest.arraysInObjects[ValuePeek](com.squareup.moshi.JsonWriterTest) (1 ms)</li><li>com.squareup.moshi.AdapterMethodsTest.genericArrayTypes(com.squareup.moshi.AdapterMethodsTest) (30 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerNullValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerMultipleValueObject[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.readJsonValueNestedListInMap[ValuePeek](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.arrayKeyTypeHasCoherentErrorMessage(com.squareup.moshi.MapJsonAdapterTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerValueSinkFails[Value](com.squareup.moshi.PromoteNameToValueTest) (0 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.mapWithNonStringKeys(com.squareup.moshi.MapJsonAdapterTest) (1 ms)</li><li>com.squareup.moshi.JsonWriterTest.nullsValuesSerializedWhenConfigured[Value](com.squareup.moshi.JsonWriterTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderTest.peekJsonReader[Value](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.map(com.squareup.moshi.MapJsonAdapterTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerStringValue[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerIntegerValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonWriterTest.nullStringValue[ValuePeek](com.squareup.moshi.JsonWriterTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderTest.readEmptyObject[ValuePeek](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.selectName[ValuePeek](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerLongValue[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipInteger[ValuePeek](com.squareup.moshi.JsonReaderTest) (2 ms)</li><li>com.squareup.moshi.JsonWriterTest.streamingValueInObject[ValuePeek](com.squareup.moshi.JsonWriterTest) (1 ms)</li><li>com.squareup.moshi.JsonWriterTest.streamingValueInObject[Value](com.squareup.moshi.JsonWriterTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderTest.deeplyNestedObjects[ValuePeek](com.squareup.moshi.JsonReaderTest) (6 ms)</li><li>com.squareup.moshi.JsonReaderPathTest.arrayOfObjects[Value](com.squareup.moshi.JsonReaderPathTest) (2 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerUnquotedIntegerValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.helloWorld[ValuePeek](com.squareup.moshi.JsonReaderTest) (14 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerMultipleValueObject[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipArray[Value](com.squareup.moshi.JsonReaderTest) (2 ms)</li><li>com.squareup.moshi.JsonWriterTest.arraysInObjects[Value](com.squareup.moshi.JsonWriterTest) (3 ms)</li><li>com.squareup.moshi.ObjectAdapterTest.fromJsonDoesNotFailOnNullValues(com.squareup.moshi.ObjectAdapterTest) (0 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerUnquotedDoubleValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerMultipleValueObject[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerNullValue[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.deeplyNestedObjects[Value](com.squareup.moshi.JsonReaderTest) (9 ms)</li><li>com.squareup.moshi.FlattenTest.flattenObject[ValuePeek](com.squareup.moshi.FlattenTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipTopLevelObject[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.FlattenTest.flattenDoesNotImpactOtherTypesInArrays[ValuePeek](com.squareup.moshi.FlattenTest) (6 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipArrayAfterPeek[ValuePeek](com.squareup.moshi.JsonReaderTest) (2 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerValueSinkFails[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipInteger[Value](com.squareup.moshi.JsonReaderTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderTest.basicPeekJson[Value](com.squareup.moshi.JsonReaderTest) (5 ms)</li><li>com.squareup.moshi.JsonReaderTest.peekAfterPeek[ValuePeek](com.squareup.moshi.JsonReaderTest) (5 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerSourceValueFails[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.selectNameUnnecessaryEscaping[ValuePeek](com.squareup.moshi.JsonReaderTest) (5 ms)</li><li>com.squareup.moshi.JsonWriterTest.streamingValueCloseIsIdempotent[ValuePeek](com.squareup.moshi.JsonWriterTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipName[ValuePeek](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipArray[ValuePeek](com.squareup.moshi.JsonReaderTest) (2 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerUnquotedIntegerValue[Value](com.squareup.moshi.PromoteNameToValueTest) (0 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerEmptyValueObject[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipValueAtEndOfObjectFails[Value](com.squareup.moshi.JsonReaderTest) (2 ms)</li><li>com.squareup.moshi.JsonWriterTest.nullStringValue[Value](com.squareup.moshi.JsonWriterTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.selectNameUnnecessaryEscaping[Value](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.JsonReaderTest.readEmptyObject[Value](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.FlattenTest.flattenObject[Value](com.squareup.moshi.FlattenTest) (3 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerUnquotedDoubleValue[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipObject[ValuePeek](com.squareup.moshi.JsonReaderTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderPathTest.skipObjectNames[Value](com.squareup.moshi.JsonReaderPathTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderPathTest.objectPath[ValuePeek](com.squareup.moshi.JsonReaderPathTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderTest.nextFailuresDoNotAdvance[Value](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.JsonReaderPathTest.skipObjectValues[Value](com.squareup.moshi.JsonReaderPathTest) (2 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerUnusedPromotionDoesntPersist[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (0 ms)</li><li>com.squareup.moshi.JsonReaderPathTest.skipObjectNames[ValuePeek](com.squareup.moshi.JsonReaderPathTest) (2 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerIntegerValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerBooleanValue[Value](com.squareup.moshi.PromoteNameToValueTest) (0 ms)</li><li>com.squareup.moshi.MoshiTest.duplicateKeyDisallowedInObjectType(com.squareup.moshi.MoshiTest) (0 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.emptyMap(com.squareup.moshi.MapJsonAdapterTest) (0 ms)</li><li>com.squareup.moshi.JsonReaderTest.selectNameNecessaryEscaping[ValuePeek](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.JsonAdapterTest.serializeNulls[Value](com.squareup.moshi.JsonAdapterTest) (2 ms)</li><li>com.squareup.moshi.ObjectAdapterTest.toJsonCoercesRuntimeTypeForMaps(com.squareup.moshi.ObjectAdapterTest) (0 ms)</li><li>com.squareup.moshi.FlattenTest.flattenDoesNotImpactOtherTypesInObjects[Value](com.squareup.moshi.FlattenTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipArrayAfterPeek[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.readJsonValueMap[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonWriterTest.objectsInArrays[ValuePeek](com.squareup.moshi.JsonWriterTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderTest.failOnUnknownFailsOnUnknownObjectValue[Value](com.squareup.moshi.JsonReaderTest) (11 ms)</li><li>com.squareup.moshi.JsonReaderTest.nextFailuresDoNotAdvance[ValuePeek](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerStringValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipNameFailUnknown[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.selectNameUnquoted[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.helloWorld[Value](com.squareup.moshi.JsonReaderTest) (5 ms)</li><li>com.squareup.moshi.JsonReaderTest.selectName[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.peekAfterPromoteNameToValue[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipTopLevelObject[ValuePeek](com.squareup.moshi.JsonReaderTest) (2 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerEmptyValueObject[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipNameFailUnknown[ValuePeek](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderPathTest.path[ValuePeek](com.squareup.moshi.JsonReaderPathTest) (2 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.orderIsRetained(com.squareup.moshi.MapJsonAdapterTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerDoubleValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerMultipleValueObject[Value](com.squareup.moshi.PromoteNameToValueTest) (0 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerSourceValueFails[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.JsonWriterTest.objectsInArrays[Value](com.squareup.moshi.JsonWriterTest) (2 ms)</li><li>com.squareup.moshi.JsonReaderTest.peekJsonReader[ValuePeek](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipDouble[ValuePeek](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.peekAfterPeek[Value](com.squareup.moshi.JsonReaderTest) (4 ms)</li><li>com.squareup.moshi.JsonReaderTest.selectNameNecessaryEscaping[Value](com.squareup.moshi.JsonReaderTest) (3 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerUnquotedLongValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.MoshiTest.referenceCyclesOnMixedTypes(com.squareup.moshi.MoshiTest) (2 ms)</li><li>com.squareup.moshi.FlattenTest.flattenDoesNotImpactOtherTypesInArrays[Value](com.squareup.moshi.FlattenTest) (3 ms)</li><li>com.squareup.moshi.JsonReaderTest.basicPeekJson[ValuePeek](com.squareup.moshi.JsonReaderTest) (6 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerDoubleValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (0 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.mapWithNonStringKeysToJsonObject(com.squareup.moshi.MapJsonAdapterTest) (0 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.mapWithNullKeyFailsToEmit(com.squareup.moshi.MapJsonAdapterTest) (1 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.objectKeyTypeHasCoherentErrorMessage(com.squareup.moshi.MapJsonAdapterTest) (0 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.covariantValue(com.squareup.moshi.MapJsonAdapterTest) (0 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerNullValue[ValuePeek](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerBooleanValue[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.readerLongValue[Value](com.squareup.moshi.PromoteNameToValueTest) (0 ms)</li><li>com.squareup.moshi.JsonWriterTest.nullsValuesSerializedWhenConfigured[ValuePeek](com.squareup.moshi.JsonWriterTest) (2 ms)</li><li>com.squareup.moshi.ObjectAdapterTest.objectAdapterDelegatesLists(com.squareup.moshi.ObjectAdapterTest) (1 ms)</li><li>com.squareup.moshi.JsonReaderTest.skipValueAtEndOfObjectFails[ValuePeek](com.squareup.moshi.JsonReaderTest) (2 ms)</li><li>com.squareup.moshi.PromoteNameToValueTest.writerStringValue[Value](com.squareup.moshi.PromoteNameToValueTest) (1 ms)</li><li>com.squareup.moshi.MapJsonAdapterTest.duplicatesAreForbidden(com.squareup.moshi.MapJsonAdapterTest) (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.6
+
+</body>
+</html>

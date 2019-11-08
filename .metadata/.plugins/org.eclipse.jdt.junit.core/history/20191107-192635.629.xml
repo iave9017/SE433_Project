@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="jacoco-plugin-master" project="jacoco-plugin-master" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="hudson.plugins.jacoco.portlet.utils.UtilsHudsonTest" time="20.158">
+    <testcase name="testRoundFloat" classname="hudson.plugins.jacoco.portlet.utils.UtilsHudsonTest" time="13.597"/>
+    <testcase name="testGetLastDate" classname="hudson.plugins.jacoco.portlet.utils.UtilsHudsonTest" time="6.561"/>
+  </testsuite>
+  <testsuite name="hudson.plugins.jacoco.portlet.JacocoLoadDataHudsonTest" time="5.724">
+    <testcase name="testGetResultSummary" classname="hudson.plugins.jacoco.portlet.JacocoLoadDataHudsonTest" time="5.724"/>
+  </testsuite>
+</testrun>
