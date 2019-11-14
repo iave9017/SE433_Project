@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>ThrowingErrorHandler.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright (C) 2012 Square, Inc.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package dagger.internal;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Handles errors by throwing an exception containing all the available errors.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public final class ThrowingErrorHandler implements Linker.ErrorHandler {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override public void handleErrors(List&#60;String&#62; errors) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_26'>1</a>
+<span>
+1. handleErrors : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (errors.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      return;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    StringBuilder message = new StringBuilder();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    message.append(&#34;Errors creating object graph:&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    for (String error : errors) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      message.append(&#34;\n  &#34;).append(error);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    throw new IllegalStateException(message.toString());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2bcda694_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2bcda694_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2bcda694_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handleErrors<br/><b>Killed by : </b>dagger.ModuleTest.autoInstantiationOfModules(dagger.ModuleTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>dagger.MembersInjectorTest.membersInjectorOfUnconstructableIsOkay(dagger.MembersInjectorTest) (2 ms)</li><li>dagger.SetBindingTest.multiValueBindings_SingleModule(dagger.SetBindingTest) (1 ms)</li><li>dagger.InjectionTest.providesSetOfProvidersIsDifferentThanProvidesTypeSetValues(dagger.InjectionTest) (2 ms)</li><li>dagger.ProblemDetectorTest.validateLazy(dagger.ProblemDetectorTest) (1 ms)</li><li>dagger.ThreadSafetyTest.concurrentSingletonAccess(dagger.ThreadSafetyTest) (17 ms)</li><li>dagger.ExtensionWithSetBindingsTest.basicInjectionWithExtension(dagger.ExtensionWithSetBindingsTest) (29 ms)</li><li>dagger.ModuleTest.childModuleWithBinding(dagger.ModuleTest) (1 ms)</li><li>dagger.internal.FailoverLoaderTest.simpleInjectionWithUnGeneratedCode(dagger.internal.FailoverLoaderTest) (3 ms)</li><li>dagger.SetBindingTest.validateEmptySetBinding(dagger.SetBindingTest) (1 ms)</li><li>dagger.InjectionTest.uninjectableSupertypes(dagger.InjectionTest) (2 ms)</li><li>dagger.InjectionTest.noJitBindingsForInterfaces(dagger.InjectionTest) (4 ms)</li><li>dagger.InjectionTest.singletonInGraph(dagger.InjectionTest) (3 ms)</li><li>dagger.ModuleTest.childModuleWithStaticInjection(dagger.ModuleTest) (1 ms)</li><li>dagger.ModuleTest.childModuleWithChildModule(dagger.ModuleTest) (1 ms)</li><li>dagger.UnusedProviderTest.unusedSetValuesBinding(dagger.UnusedProviderTest) (1 ms)</li><li>dagger.LazyInjectionTest.lazyInjectionRequiresProvidesMethod(dagger.LazyInjectionTest) (1 ms)</li><li>dagger.UnusedProviderTest.whenLibraryModulePlussedToNecessaryModule_shouldNotFailOnUnusedLibraryModule(dagger.UnusedProviderTest) (2 ms)</li><li>dagger.MembersInjectorTest.injectMembers(dagger.MembersInjectorTest) (1 ms)</li><li>dagger.InjectionTest.providerInjection(dagger.InjectionTest) (3 ms)</li><li>dagger.UnusedProviderTest.unusedSetBinding(dagger.UnusedProviderTest) (1 ms)</li><li>dagger.InjectionTest.providesSetValues(dagger.InjectionTest) (2 ms)</li><li>dagger.InjectionOfLazyTest.lazyValueCreation(dagger.InjectionOfLazyTest) (1 ms)</li><li>dagger.SetBindingTest.duplicateValuesContributed(dagger.SetBindingTest) (2 ms)</li><li>dagger.ExtensionTest.basicInjection(dagger.ExtensionTest) (12 ms)</li><li>dagger.InjectionOfLazyTest.lazyNullCreation(dagger.InjectionOfLazyTest) (1 ms)</li><li>dagger.InjectionTest.singletonsAreNotEager(dagger.InjectionTest) (3 ms)</li><li>dagger.InjectionOfLazyTest.sideBySideLazyVsProvider(dagger.InjectionOfLazyTest) (1 ms)</li><li>dagger.InjectionTest.nonEntryPointNeedsInjectAnnotation(dagger.InjectionTest) (6 ms)</li><li>dagger.InjectionTest.cannotGetOnMembersOnlyInjectionPoint(dagger.InjectionTest) (2 ms)</li><li>dagger.UnusedProviderTest.unusedProviderMethod_whenNotLibraryModule_fails(dagger.UnusedProviderTest) (1 ms)</li><li>dagger.ModuleTest.autoInstantiationOfModules(dagger.ModuleTest) (1 ms)</li><li>dagger.InjectionTest.extendsParameterizedType(dagger.InjectionTest) (3 ms)</li><li>dagger.InjectionTest.bindingAnnotations(dagger.InjectionTest) (3 ms)</li><li>dagger.InjectionTest.getInstanceOfArray(dagger.InjectionTest) (14 ms)</li><li>dagger.ExtensionWithStateTest.basicInjectionWithExtension(dagger.ExtensionWithStateTest) (26 ms)</li><li>dagger.SetBindingTest.validateLibraryModules(dagger.SetBindingTest) (1 ms)</li><li>dagger.UnusedProviderTest.unusedProvidesMethod_whenModuleLibrary_passes(dagger.UnusedProviderTest) (1 ms)</li><li>dagger.SetBindingTest.multiValueBindings_WithSingletonAndDefaultValues(dagger.SetBindingTest) (2 ms)</li><li>dagger.InjectionTest.getInstance(dagger.InjectionTest) (3 ms)</li><li>dagger.InjectionTest.injectParameterizedType(dagger.InjectionTest) (2 ms)</li><li>dagger.InjectStaticsTest.injectStatics(dagger.InjectStaticsTest) (16 ms)</li><li>dagger.InjectionTest.getInstanceOfPrimitive(dagger.InjectionTest) (11 ms)</li><li>dagger.InjectionTest.runtimeProvidesMethodsExceptionsAreNotWrapped(dagger.InjectionTest) (2 ms)</li><li>dagger.SetBindingTest.validateLibraryModules_nonLibraryContributors(dagger.SetBindingTest) (5 ms)</li><li>dagger.InjectionTest.injectableSupertypes(dagger.InjectionTest) (2 ms)</li><li>dagger.InjectionTest.singletons(dagger.InjectionTest) (2 ms)</li><li>dagger.InjectStaticsTest.instanceFieldsNotInjectedByInjectStatics(dagger.InjectStaticsTest) (1 ms)</li><li>dagger.MembersInjectorTest.providesMethodsAndMembersInjectionDoNotConflict(dagger.MembersInjectorTest) (1 ms)</li><li>dagger.InjectionTest.basicInjection(dagger.InjectionTest) (7 ms)</li><li>dagger.InjectionTest.getInstanceAndInjectMembersUseDifferentKeys(dagger.InjectionTest) (6 ms)</li><li>dagger.ProblemDetectorTest.providesCircularDependenciesDetected(dagger.ProblemDetectorTest) (2 ms)</li><li>dagger.InjectionTest.testSingletonLinkingThroughExtensionGraph(dagger.InjectionTest) (1 ms)</li><li>dagger.SetBindingTest.multiValueBindings_MultiModule_NestedSet(dagger.SetBindingTest) (2 ms)</li><li>dagger.MembersInjectorTest.membersInjectorOfNonStaticInnerIsOkay(dagger.MembersInjectorTest) (1 ms)</li><li>dagger.InjectionTest.providesSet(dagger.InjectionTest) (3 ms)</li><li>dagger.InjectionOfLazyTest.providerOfLazyOfSomething(dagger.InjectionOfLazyTest) (1 ms)</li><li>dagger.ThreadSafetyTest.concurrentLazyAccess(dagger.ThreadSafetyTest) (38 ms)</li><li>dagger.InjectionTest.twoAtInjectConstructorsIsRejected(dagger.InjectionTest) (3 ms)</li><li>dagger.InjectionTest.noJitBindingsForAnnotations(dagger.InjectionTest) (2 ms)</li><li>dagger.InjectionTest.singletonsInjectedOnlyIntoProviders(dagger.InjectionTest) (2 ms)</li><li>dagger.ExtensionWithSetBindingsTest.basicInjectionWithExtensionAndOverrides(dagger.ExtensionWithSetBindingsTest) (1 ms)</li><li>dagger.InjectionTest.runtimeConstructorExceptionsAreNotWrapped(dagger.InjectionTest) (2 ms)</li><li>dagger.InjectionTest.atInjectAlwaysRequiredForConstruction(dagger.InjectionTest) (7 ms)</li><li>dagger.SetBindingTest.validateSetBinding(dagger.SetBindingTest) (1 ms)</li><li>dagger.ModuleTest.childModuleWithEntryPoint(dagger.ModuleTest) (1 ms)</li><li>dagger.ExtensionTest.basicExtension(dagger.ExtensionTest) (17 ms)</li><li>dagger.SetBindingTest.multiValueBindings_MultiModule(dagger.SetBindingTest) (2 ms)</li><li>dagger.InjectionTest.noProvideBindingsForAbstractClasses(dagger.InjectionTest) (5 ms)</li><li>dagger.InjectStaticsTest.staticFieldsNotInjectedByInjectMembers(dagger.InjectStaticsTest) (5 ms)</li><li>dagger.SetBindingTest.multiValueBindings_WithSingletonsAcrossMultipleInjectableTypes(dagger.SetBindingTest) (6 ms)</li><li>dagger.InjectionTest.objectGraphGetInterface(dagger.InjectionTest) (2 ms)</li><li>dagger.SetBindingTest.sampleMultiBindingLogger(dagger.SetBindingTest) (4 ms)</li><li>dagger.ModuleTest.childModuleWithManualConstruction(dagger.ModuleTest) (2 ms)</li><li>dagger.ModuleTest.autoInstantiationOfIncludedModules(dagger.ModuleTest) (1 ms)</li><li>dagger.SetBindingTest.multiValueBindings_WithQualifiers(dagger.SetBindingTest) (3 ms)</li><li>dagger.ProblemDetectorTest.atInjectCircularDependenciesDetected(dagger.ProblemDetectorTest) (19 ms)</li><li>dagger.InjectionTest.entryPointNeedsNoInjectAnnotation(dagger.InjectionTest) (2 ms)</li><li>dagger.InjectionTest.singletonBindingAnnotationAndProvider(dagger.InjectionTest) (4 ms)</li><li>dagger.InjectionTest.noConstructorInjectionsForClassesWithTypeParameters(dagger.InjectionTest) (3 ms)</li><li>dagger.ExtensionTest.scopedGraphs(dagger.ExtensionTest) (3 ms)</li><li>dagger.InjectionTest.moduleOverrides(dagger.InjectionTest) (14 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.6
+
+</body>
+</html>
