@@ -165,7 +165,7 @@ public class mutantTests {
     	}
     	
     	//.core.model.oAuthRequest 
-    	//2/4 mutants killed
+    	//4/4 mutants killed
     	
     	@Test //KILLED 3 Mutants.. 1 In this class. Ensures all payloads are reset when string payload added
     	public void line264RemovedCall() {
@@ -177,7 +177,7 @@ public class mutantTests {
     		assertEquals(null,oRequest.getFilePayload());
     	}
     	
-     @Test //KILLED 1 Mutant ..assures all payloads reset when File payload added
+    @Test //KILLED 1 Mutant ..assures all payloads reset when File payload added
     	public void line284RemovedCall() {
     		File f = new File("what.txt");
     		OAuthRequest oRequest = new OAuthRequest(null, "URLTEST");
@@ -186,6 +186,55 @@ public class mutantTests {
 
     		assertEquals(null,oRequest.getStringPayload());
     	}
+    
+ 	@Test //KILLED 1 MUTANT ..assures getURL() doesn't return null when URL not null
+	public void line328MutateReturn() {
+ 		
+		OAuthRequest oRequest = new OAuthRequest(null, "URLTEST");
+		String s = null;
+		Exception ex = null;
+		try {
+			s = oRequest.getUrl();
+		} catch (Exception e) {
+			ex = e;
+		}
+		if (ex != null || s == null) {
+			Assert.fail();
+		}
+	}
+ 	
+ 	@Test ////KILLED 1 MUTANT ..assures toString() doesn't return null when not null
+	public void line377MutateReturn() {
+ 		
+		OAuthRequest oRequest = new OAuthRequest(null, "URLTEST");
+		String s = null;
+		Exception ex = null;
+		try {
+			s = oRequest.toString();
+		} catch (Exception e) {
+			ex = e;
+		}
+		if (ex != null || s == null) {
+			Assert.fail();
+		}
+ 	}
+		
+	//.core.model.OAuth1AccessToken
+	//1/1 mutant killed
+		
+	@Test ////KILLED 1 MUTANT ..assures check for null
+	public void line69RemoveCall() {
+ 		Exception ex = null;
+		try {
+			OAuth2AccessToken oToken = new OAuth2AccessToken(null, null, null, null, null, null);
+		}catch (Exception e) {
+			ex = e;
+		}
+		if (ex == null) {
+			Assert.fail();
+		}
+	}
+ 	
     	
     	
     	
