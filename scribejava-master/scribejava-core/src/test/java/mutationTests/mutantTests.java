@@ -234,9 +234,23 @@ public class mutantTests {
 			Assert.fail();
 		}
 	}
- 	
-    	
-    	
-    	
- 
+	
+	//.core.model.core.java8.Base64.Decoder
+	//0/19 mutants killed
+	
+	@Test //KILLED 5 MUTANTS ..all outside of the class. exemplary of nature of mutation testing 
+	public void line493NegatedConditional() {
+		
+		byte[] b = "TEST".getBytes();
+		Base64.Encoder e = Base64.getUrlEncoder();
+		byte[] a = e.encode(b);
+		Base64.Decoder de = Base64.getUrlDecoder();
+		byte[] c = de.decode(a);
+		//System.out.print(a.length/2);
+		//System.out.print(c.length);
+		assertEquals(b.length,c.length);
+		
+	}
+	
+	
 }
