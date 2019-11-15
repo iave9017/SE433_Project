@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.github.scribejava.core.builder.ServiceBuilder;
+import com.github.scribejava.core.httpclient.jdk.JDKHttpClientConfig;
 import com.github.scribejava.core.java8.Base64;
 import com.github.scribejava.core.model.*;
 import com.github.scribejava.core.oauth.OAuth20Service;
@@ -246,11 +247,32 @@ public class mutantTests {
 		byte[] a = e.encode(b);
 		Base64.Decoder de = Base64.getUrlDecoder();
 		byte[] c = de.decode(a);
-		//System.out.print(a.length/2);
-		//System.out.print(c.length);
+
 		assertEquals(b.length,c.length);
-		
 	}
 	
+	//.core.httpclient.jdk.JDKHttpClientConfig
+	//1/1 mutants killed
+	
+	@Test //KILLED 1 MUTANT ..makes sure correct boolean returned after call to jdkConf
+	public void line37ReplacedReturnWithTernary() {
+		JDKHttpClientConfig jdkConf =  new JDKHttpClientConfig();
+		jdkConf.setFollowRedirects(true);
+		boolean a = jdkConf.isFollowRedirects();
+		assertTrue(a);
+	}
+	
+	//.core.model.Parameter
+	//2/2 mutants killed
+	
+	@Test //KILLED 2 MUTANTS ..makes sure correct boolean returned in multiple scenarios
+	public void line32And21ReplacedReturnWithTernaryNegateConditional() {
+		Parameter pMeter = new Parameter(null, null);
+		boolean ans = pMeter.equals(pMeter);
+		assertTrue(ans);
+		ans = pMeter.equals(null);
+		assertFalse(ans);
+
+	}
 	
 }
