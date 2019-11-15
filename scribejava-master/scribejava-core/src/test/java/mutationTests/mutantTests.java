@@ -2,13 +2,20 @@ package mutationTests;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Base64.Encoder;
 import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import com.github.scribejava.core.builder.ServiceBuilder;
+import com.github.scribejava.core.java8.Base64;
 import com.github.scribejava.core.model.*;
+import com.github.scribejava.core.oauth.OAuth20Service;
+import com.github.scribejava.core.oauth.OAuthService;
 
 public class mutantTests {
 	
@@ -83,4 +90,104 @@ public class mutantTests {
  		}
     }
     
+    //.core.model.OAuthToken tests
+    //2/2 mutants killed
+    
+    	@Test //KILLS 1 MUTANT.. assures exception is called when null token passed to OAuth constructor
+    	public void line18RemovedCall() {
+    		OAuth1Token oToken = null;
+    		Exception ex = null;
+    		try {
+    			oToken = new OAuth1AccessToken(null,"TOKENSECRET");
+    		} catch (Exception e) {
+    			ex = e;
+    		}
+    		if (ex.equals(null)) {
+     		Assert.fail();
+     	}
+    	}
+    	
+    	@Test //KILLS 1 MUTANT.. assures exception is called when null token secret passed to OAuth constructor
+    	public void line19RemovedCall() {
+    		OAuth1Token oToken = null;
+    		Exception ex = null;
+    		try {
+    			oToken = new OAuth1AccessToken("TOKEN",null);
+    		} catch (Exception e) {
+    			ex = e;
+    		}
+    		if (ex.equals(null)) {
+     		Assert.fail();
+     	}
+    	}
+    	
+    	//.core.java8.Base64.Encoder
+    	//4/19 mutants killed
+    	
+    	@Test //KILLED 4 Mutants.. assuring math is done correctly while encoding
+    	public void multiLineReplacedDivisionWithMultiplication() {
+    		byte[] b = "TEST".getBytes();
+    		Base64.Encoder e = Base64.getEncoder();
+    		byte[] a = e.encode(b);
+    		//System.out.print("Length of initial: " + b.length + "\nLength of final: " + a.length);
+    		assertEquals(a.length,b.length*2);
+    	}
+    	
+    	@Test //KILLS NO MUTANTS.. changing length of test array here does not kill more mutants
+    	public void lineOtherReplacedDivisionWithMultiplication() {
+    		byte[] b = "TESTINGTESTING".getBytes();
+    		Base64.Encoder e = Base64.getEncoder();
+    		byte[] a = e.encode(b);
+    		//System.out.print("Length of initial: " + b.length + "\nLength of final: " + a.length);
+    		assertEquals(a.length,b.length+6);
+    	}
+    	
+    	//.core.oauth.OAuthService
+    	//0/4 mutants killed
+    	
+    	@Test //KILLS NO MUTANTS.. assures that http closure doesn't affect execute 
+    	public void line56RemovedCall(){
+    		OAuthService oService = new OAuth20Service(null, null, null, null, null, null, null, null, null, null);
+    		Exception ex = null;
+    		try {
+    			oService.close();
+    		} catch (Exception e) {
+    			Assert.fail(); //close failed
+    		}
+    		try {
+    			oService.execute(null, null, null);
+    		} catch (Exception ee) {
+    			ex = ee;
+    		}
+    		if (ex == null) {
+    			Assert.fail(); //execute failed
+    		}
+    	}
+    	
+    	//.core.model.oAuthRequest 
+    	//2/4 mutants killed
+    	
+    	@Test //KILLED 3 Mutants.. 1 In this class. Ensures all payloads are reset when string payload added
+    	public void line264RemovedCall() {
+    		File f = new File("what.txt");
+    		OAuthRequest oRequest = new OAuthRequest(null, "URLTEST");
+    		oRequest.setPayload(f);
+    		oRequest.setPayload("PAYLOAD_NEW");
+
+    		assertEquals(null,oRequest.getFilePayload());
+    	}
+    	
+     @Test //KILLED 1 Mutant ..assures all payloads reset when File payload added
+    	public void line284RemovedCall() {
+    		File f = new File("what.txt");
+    		OAuthRequest oRequest = new OAuthRequest(null, "URLTEST");
+    		oRequest.setPayload("PAYLOAD_NEW");
+    		oRequest.setPayload(f);
+
+    		assertEquals(null,oRequest.getStringPayload());
+    	}
+    	
+    	
+    	
+ 
 }
