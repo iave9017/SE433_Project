@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Preconditions.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.github.scribejava.core.utils;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Utils for checking preconditions and invariants</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public abstract class Preconditions {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final String DEFAULT_MESSAGE = &#34;Received an invalid parameter&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Checks that an object is not null.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param object any object</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param errorMsg error message</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws IllegalArgumentException if the object is null</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static void checkNotNull(Object object, String errorMsg) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_19'/>
+19
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_19'>2</a>
+<span>
+1. checkNotNull : negated conditional &rarr; KILLED<br/>
+2. checkNotNull : removed call to com/github/scribejava/core/utils/Preconditions::check &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        check(object != null, errorMsg);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Checks that a string is not null or empty</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param string any string</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param errorMsg error message</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws IllegalArgumentException if the string is null or empty</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static void checkEmptyString(String string, String errorMsg) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_31'>1</a>
+<span>
+1. checkEmptyString : removed call to com/github/scribejava/core/utils/Preconditions::check &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        check(hasText(string), errorMsg);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static boolean hasText(String str) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_35'>2</a>
+<span>
+1. hasText : negated conditional &rarr; KILLED<br/>
+2. hasText : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (str == null || str.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_36'>1</a>
+<span>
+1. hasText : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        final int strLen = str.length();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_39'>3</a>
+<span>
+1. hasText : changed conditional boundary &rarr; KILLED<br/>
+2. hasText : Changed increment from 1 to -1 &rarr; KILLED<br/>
+3. hasText : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 0; i &#60; strLen; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_40'>1</a>
+<span>
+1. hasText : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (!Character.isWhitespace(str.charAt(i))) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_41'>1</a>
+<span>
+1. hasText : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_44'>1</a>
+<span>
+1. hasText : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static void check(boolean requirements, String error) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_48'>1</a>
+<span>
+1. check : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!requirements) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_49'/>
+49
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_49'>1</a>
+<span>
+1. check : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            throw new IllegalArgumentException(hasText(error) ? error : DEFAULT_MESSAGE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a6e410c_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a6e410c_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkNotNull<br/><b>Killed by : </b>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForNullObjects(com.github.scribejava.core.utils.PreconditionsTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>checkNotNull<br/><b>Killed by : </b>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForNullObjects(com.github.scribejava.core.utils.PreconditionsTest)</span></span> removed call to com/github/scribejava/core/utils/Preconditions::check &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a6e410c_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkEmptyString<br/><b>Killed by : </b>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForNullStrings(com.github.scribejava.core.utils.PreconditionsTest)</span></span> removed call to com/github/scribejava/core/utils/Preconditions::check &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a6e410c_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForNullStrings(com.github.scribejava.core.utils.PreconditionsTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>mutationTests.mutantTests.line42RemovedCall(mutationTests.mutantTests)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a6e410c_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForNullStrings(com.github.scribejava.core.utils.PreconditionsTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a6e410c_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForSpacesOnlyStrings(com.github.scribejava.core.utils.PreconditionsTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForSpacesOnlyStrings(com.github.scribejava.core.utils.PreconditionsTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>mutationTests.mutantTests.line42RemovedCall(mutationTests.mutantTests)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a6e410c_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForSpacesOnlyStrings(com.github.scribejava.core.utils.PreconditionsTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a6e410c_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>mutationTests.mutantTests.line42RemovedCall(mutationTests.mutantTests)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a6e410c_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForSpacesOnlyStrings(com.github.scribejava.core.utils.PreconditionsTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a6e410c_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>check<br/><b>Killed by : </b>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForNullStrings(com.github.scribejava.core.utils.PreconditionsTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a6e410c_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a6e410c_49'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>check<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForNullStrings(com.github.scribejava.core.utils.PreconditionsTest) (0 ms)</li><li>com.github.scribejava.core.extractors.HeaderExtractorTest.shouldExceptionIfRequestHasNoOAuthParams(com.github.scribejava.core.extractors.HeaderExtractorTest) (1 ms)</li><li>com.github.scribejava.core.model.RequestTest.shouldGetQueryStringParameters(com.github.scribejava.core.model.RequestTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest.shouldParseScopeFromResponse(com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest) (1 ms)</li><li>com.github.scribejava.core.model.ParameterListTest.shouldThrowExceptionWhenAppendingNullMapToQuerystring(com.github.scribejava.core.model.ParameterListTest) (1 ms)</li><li>mutationTests.mutantTests.line44MutatedReturnToConditional(mutationTests.mutantTests) (1 ms)</li><li>com.github.scribejava.core.model.ParameterListTest.shouldAppendNothingToQuerystringIfGivenEmptyMap(com.github.scribejava.core.model.ParameterListTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest.shouldExtractTokenFromResponseWithExpiresAndRefreshParam(com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest.shouldThrowExceptionIfResponseIsError(com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest) (0 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest.shouldThrowExceptionIfForEmptyStrings(com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest) (1 ms)</li><li>com.github.scribejava.core.utils.OAuthEncoderTest.shouldThrowExceptionIfStringToDecodeIsNull(com.github.scribejava.core.utils.OAuthEncoderTest) (1 ms)</li><li>com.github.scribejava.core.model.RequestTest.shouldSetBodyParamsAndAddContentLength(com.github.scribejava.core.model.RequestTest) (1 ms)</li><li>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForSpacesOnlyStrings(com.github.scribejava.core.utils.PreconditionsTest) (1 ms)</li><li>mutationTests.mutantTests.line45ReplacedIntegerReturnWithTernary(mutationTests.mutantTests) (1 ms)</li><li>com.github.scribejava.core.extractors.HeaderExtractorTest.shouldExtractStandardHeader(com.github.scribejava.core.extractors.HeaderExtractorTest) (1 ms)</li><li>com.github.scribejava.core.extractors.BaseStringExtractorTest.shouldProperlyEncodeSpaces(com.github.scribejava.core.extractors.BaseStringExtractorTest) (2 ms)</li><li>com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest.shouldSendGetRequest(com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest) (8 ms)</li><li>com.github.scribejava.core.services.HMACSha1SignatureServiceTest.shouldThrowExceptionIfBaseStringIsEmpty(com.github.scribejava.core.services.HMACSha1SignatureServiceTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest.shouldParseResponse(com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest) (294 ms)</li><li>com.github.scribejava.core.utils.OAuthEncoderTest.shouldThrowExceptionIfStringToEncodeIsNull(com.github.scribejava.core.utils.OAuthEncoderTest) (1 ms)</li><li>com.github.scribejava.core.model.RequestTest.shouldHandleQueryStringSpaceEncodingProperly(com.github.scribejava.core.model.RequestTest) (1 ms)</li><li>com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest.shouldReadResponseStream(com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest) (6 ms)</li><li>com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest.shouldExtractTokenFromInvertedOAuthStandardResponse(com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest) (2 ms)</li><li>com.github.scribejava.core.oauth.OAuth20ServiceTest.shouldProduceCorrectRequestAsync(com.github.scribejava.core.oauth.OAuth20ServiceTest) (69 ms)</li><li>com.github.scribejava.core.utils.OAuthEncoderTest.shouldPercentEncodeAllSpecialCharacters(com.github.scribejava.core.utils.OAuthEncoderTest) (1 ms)</li><li>com.github.scribejava.core.model.TokenTest.shouldReturnSameHashCodeForEqualObjects(com.github.scribejava.core.model.TokenTest) (1 ms)</li><li>mutationTests.mutantTests.line19RemovedCall(mutationTests.mutantTests) (1 ms)</li><li>mutationTests.mutantTests.line49RemovedCall(mutationTests.mutantTests) (1 ms)</li><li>com.github.scribejava.core.oauth.OAuth20ServiceTest.shouldProduceCorrectRequestSync(com.github.scribejava.core.oauth.OAuth20ServiceTest) (1 ms)</li><li>com.github.scribejava.core.model.TokenTest.shouldNotBeEqualToNullOrOtherObjects(com.github.scribejava.core.model.TokenTest) (0 ms)</li><li>com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest.shouldThrowExceptionIfTokenIsAbsent(com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest.shouldExtractTokenFromResponseWithManyParameters(com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.model.ParameterListTest.shouldAppendParametersToUrlWithQuerystring(com.github.scribejava.core.model.ParameterListTest) (7 ms)</li><li>com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest.shouldSendPostRequest(com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest) (11 ms)</li><li>com.github.scribejava.core.services.HMACSha1SignatureServiceTest.shouldThrowExceptionIfApiSecretIsNull(com.github.scribejava.core.services.HMACSha1SignatureServiceTest) (1 ms)</li><li>com.github.scribejava.core.model.ParameterListTest.shouldProperlySortParameters(com.github.scribejava.core.model.ParameterListTest) (2 ms)</li><li>com.github.scribejava.core.extractors.BaseStringExtractorTest.shouldExcludePort80v2(com.github.scribejava.core.extractors.BaseStringExtractorTest) (3 ms)</li><li>com.github.scribejava.core.model.ParameterListTest.shouldProperlySortParametersWithTheSameName(com.github.scribejava.core.model.ParameterListTest) (2 ms)</li><li>mutationTests.mutantTests.line69RemoveCall(mutationTests.mutantTests) (1 ms)</li><li>com.github.scribejava.core.extractors.BaseStringExtractorTest.shouldExcludePort443(com.github.scribejava.core.extractors.BaseStringExtractorTest) (27 ms)</li><li>com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest.shouldThrowExceptionIfSecretIsAbsent(com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest.shouldExtractTokenFromResponseWithCallbackConfirmed(com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.model.RequestTest.shouldAllowAddingQuerystringParametersAfterCreation(com.github.scribejava.core.model.RequestTest) (1 ms)</li><li>com.github.scribejava.core.utils.OAuthEncoderTest.shouldPercentEncodeString(com.github.scribejava.core.utils.OAuthEncoderTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest.shouldExtractTokenWithEmptySecret(com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest) (2 ms)</li><li>com.github.scribejava.core.model.RequestTest.shouldReturnTheCompleteUrl(com.github.scribejava.core.model.RequestTest) (3 ms)</li><li>com.github.scribejava.core.services.HMACSha1SignatureServiceTest.shouldReturnSignature(com.github.scribejava.core.services.HMACSha1SignatureServiceTest) (122 ms)</li><li>com.github.scribejava.core.extractors.BaseStringExtractorTest.shouldThrowExceptionIfRquestIsNull(com.github.scribejava.core.extractors.BaseStringExtractorTest) (1 ms)</li><li>com.github.scribejava.core.extractors.BaseStringExtractorTest.shouldThrowExceptionIfRquestHasNoOAuthParameters(com.github.scribejava.core.extractors.BaseStringExtractorTest) (1 ms)</li><li>com.github.scribejava.core.services.HMACSha1SignatureServiceTest.shouldThrowExceptionIfApiSecretIsEmpty(com.github.scribejava.core.services.HMACSha1SignatureServiceTest) (1 ms)</li><li>com.github.scribejava.core.model.TokenTest.shouldReturnUrlParam(com.github.scribejava.core.model.TokenTest) (2 ms)</li><li>com.github.scribejava.core.utils.OAuthEncoderTest.shouldPercentEncodeCorrectlyTwitterCodingExamples(com.github.scribejava.core.utils.OAuthEncoderTest) (1 ms)</li><li>com.github.scribejava.core.utils.StreamUtilsTest.shouldFailWithBrokenStream(com.github.scribejava.core.utils.StreamUtilsTest) (1 ms)</li><li>mutationTests.mutantTests.line43ReplacedIntegerAdditionWithSubtraction(mutationTests.mutantTests) (1 ms)</li><li>mutationTests.mutantTests.line50NegatedConditional(mutationTests.mutantTests) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest.shouldThrowExceptionIfTokenIsAbsent(com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.model.ParameterListTest.shouldAppendParametersToSimpleUrl(com.github.scribejava.core.model.ParameterListTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest.shouldThrowExceptionIfForNullParameters(com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest) (0 ms)</li><li>com.github.scribejava.core.extractors.BaseStringExtractorTest.shouldExcludePort443v2(com.github.scribejava.core.extractors.BaseStringExtractorTest) (4 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest.shouldExtractTokenFromOAuthStandardResponse(com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.extractors.HeaderExtractorTest.shouldExceptionIfRequestIsNull(com.github.scribejava.core.extractors.HeaderExtractorTest) (0 ms)</li><li>com.github.scribejava.core.oauth.OAuth20ServiceTest.testOAuthExtractAuthorization(com.github.scribejava.core.oauth.OAuth20ServiceTest) (21 ms)</li><li>mutationTests.mutantTests.line18RemovedCall(mutationTests.mutantTests) (2 ms)</li><li>com.github.scribejava.core.extractors.BaseStringExtractorTest.shouldExtractBaseStringFromOAuthRequest(com.github.scribejava.core.extractors.BaseStringExtractorTest) (2 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest.testEscapedJsonInResponse(com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest) (1 ms)</li><li>com.github.scribejava.core.services.HMACSha1SignatureServiceTest.shouldThrowExceptionIfBaseStringIsNull(com.github.scribejava.core.services.HMACSha1SignatureServiceTest) (1 ms)</li><li>com.github.scribejava.core.utils.StreamUtilsTest.shouldCorrectlyDecodeAStream(com.github.scribejava.core.utils.StreamUtilsTest) (1 ms)</li><li>mutationTests.mutantTests.line42RemovedCall(mutationTests.mutantTests) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest.shouldThrowExceptionIfResponseIsEmptyString(com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.model.TokenTest.shouldNotDependOnRawString(com.github.scribejava.core.model.TokenTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest.shouldThrowExceptionIfResponseIsNull(com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest.shouldCallCallback(com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest) (284 ms)</li><li>com.github.scribejava.core.extractors.BaseStringExtractorTest.shouldExcludePort80(com.github.scribejava.core.extractors.BaseStringExtractorTest) (3 ms)</li><li>com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest.shouldExtractTokenFromOAuthStandardResponse(com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForEmptyStrings(com.github.scribejava.core.utils.PreconditionsTest) (1 ms)</li><li>com.github.scribejava.core.utils.StreamUtilsTest.shouldFailForNullParameter(com.github.scribejava.core.utils.StreamUtilsTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest.shouldExtractTokenFromResponseWithExpiresParam(com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.utils.PreconditionsTest.shouldThrowExceptionForNullObjects(com.github.scribejava.core.utils.PreconditionsTest) (1 ms)</li><li>com.github.scribejava.core.utils.OAuthEncoderTest.shouldFormURLDecodeString(com.github.scribejava.core.utils.OAuthEncoderTest) (2 ms)</li><li>com.github.scribejava.core.model.TokenTest.shouldTestEqualityBasedOnTokenAndSecret(com.github.scribejava.core.model.TokenTest) (1 ms)</li><li>com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest.shouldThrowExceptionIfResponseIsNull(com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest) (1 ms)</li><li>com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest.shouldPassErrors(com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest) (5 ms)</li><li>com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest.shouldThrowExceptionIfResponseIsEmptyString(com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest) (0 ms)</li><li>com.github.scribejava.core.utils.OAuthEncoderTest.shouldNotPercentEncodeReservedCharacters(com.github.scribejava.core.utils.OAuthEncoderTest) (1 ms)</li><li>com.github.scribejava.core.extractors.BaseStringExtractorTest.shouldIncludePort8080(com.github.scribejava.core.extractors.BaseStringExtractorTest) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.6
+
+</body>
+</html>
